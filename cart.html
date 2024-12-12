@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>選擇課程 - 2Pass 駕駛學校</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .cart-container {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .course-selector {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .category-selector {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            min-width: 300px;
+        }
+
+        .category-selector h2 {
+            font-size: 1.3em;
+            color: #333;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .course-options label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            margin: 8px 0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .course-options label:hover {
+            background-color: #f5f5f5;
+            border-color: #ddd;
+        }
+
+        .course-card {
+            border: 1px solid #eee;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .course-info h3 {
+            margin: 0 0 5px 0;
+            color: #333;
+        }
+
+        .course-price {
+            color: #a3c86d;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .cart-summary {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+
+        .checkout-button {
+            background-color: #a3c86d;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .checkout-button:hover {
+            background-color: #93b85f;
+        }
+
+        .remove-course {
+            color: #ff4444;
+            cursor: pointer;
+            padding: 5px 10px;
+            border: none;
+            background: none;
+        }
+
+        .sub-options {
+            margin-left: 25px;
+            margin-top: 12px;
+            padding-left: 15px;
+            border-left: 2px solid #eee;
+        }
+
+        .sub-options label {
+            padding: 12px 15px;
+            margin: 5px 0;
+        }
+
+        .price {
+            color: #a3c86d;
+            font-weight: bold;
+            margin-left: 15px;
+            white-space: nowrap;
+        }
+
+        .course-options input[type="radio"] {
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 1200px) {
+            .course-selector {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .course-selector {
+                grid-template-columns: 1fr;
+            }
+            
+            .category-selector {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Same header as other pages -->
+    <header class="site-header">
+        <!-- Copy the header from private-car.html -->
+    </header>
+    <div class="header-main">
+        <div class="logo">
+            <a href="/"><img src="images/logo.png" alt="2Pass Logo"></a>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li>
+                    <a href="#courses">學車課程</a>
+                    <ul class="sub-menu">
+                        <li><a href="private-car.html">私家車課程</a></li>
+                        <li><a href="/light-goods">輕型貨車課程</a></li>
+                        <li><a href="/extra-practice">有牌補鐘</a></li>
+                        <li><a href="/school-lessons">駕駛學院補課</a></li>
+                        <li><a href="/license">申請各類牌照</a></li>
+                        <li><a href="/improvement">駕駛改進課程</a></li>
+                        <li><a href="/taxi-improvement">的士服務改進課程</a></li>
+                        <li><a href="/commercial">商用車輛課程</a></li>
+                    </ul>
+                </li>
+                <li><a href="/about">關於我們</a></li>
+                <li><a href="/info">學車資訊</a></li>
+                <li><a href="/recruit">招聘人才</a></li>
+            </ul>
+        </nav>
+        <div class="cta-button">
+            <a href="cart.html" class="button">立即報名</a>
+        </div>
+    </div>
+</header>
+    <div class="cart-container">
+        <h1>選擇課程</h1>
+        
+        <div class="course-selector">
+            <!-- Step 1: Select Vehicle Type -->
+            <div class="category-selector">
+                <h2>第一步：選擇車種</h2>
+                <div class="category-item">
+                    <div class="course-options">
+                        <label>
+                            <input type="radio" name="vehicle-type" value="private-car">
+                            私家車課程
+                        </label>
+                        <label>
+                            <input type="radio" name="vehicle-type" value="light-goods">
+                            輕型貨車課程
+                        </label>
+                        <label>
+                            <input type="radio" name="vehicle-type" value="taxi">
+                            的士課程
+                        </label>
+                        <label>
+                            <input type="radio" name="vehicle-type" value="motorcycle">
+                            電單車課程
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Select Experience Level -->
+            <div class="category-selector">
+                <h2>第二步：選擇課程</h2>
+                
+                <!-- Private Car Options (shown when private car is selected) -->
+                <div class="course-type private-car-options" style="display: none;">
+                    <div class="category-item">
+                        <div class="course-options">
+                            <label>
+                                <input type="radio" name="course-type" value="first-time">
+                                初學駕駛 (21堂)
+                                <div class="sub-options">
+                                    <label>
+                                        <input type="radio" name="transmission" value="auto">
+                                        自動波 - HK$9,450
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="transmission" value="manual">
+                                        棍波 - HK$11,320
+                                    </label>
+                                </div>
+                            </label>
+                            <label>
+                                <input type="radio" name="course-type" value="retake">
+                                重考課程 (9堂)
+                                <div class="sub-options">
+                                    <label>
+                                        <input type="radio" name="transmission" value="auto">
+                                        自動波 - HK$5,350
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="transmission" value="manual">
+                                        棍波 - HK$6,380
+                                    </label>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Light Goods Vehicle Options -->
+                <div class="course-type light-goods-options" style="display: none;">
+                    <div class="category-item">
+                        <div class="course-options">
+                            <label>
+                                <input type="radio" name="course-type" value="first-time-goods">
+                                初學駕駛 (21堂) - HK$12,800
+                            </label>
+                            <label>
+                                <input type="radio" name="course-type" value="retake-goods">
+                                重考課程 (9堂) - HK$7,200
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Practice Options -->
+                <div class="category-item">
+                    <div class="category-title">補充課程</div>
+                    <div class="course-options">
+                        <label>
+                            <input type="checkbox" name="extra-course" value="extra-practice">
+                            有牌補鐘 (每堂) - HK$550
+                        </label>
+                        <label>
+                            <input type="checkbox" name="extra-course" value="school-practice">
+                            駕駛學院補課 (每堂) - HK$650
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add this after Step 2 in cart.html -->
+            <div class="category-selector">
+                <h2>第三步：選擇學車套餐</h2>
+                <div class="category-item">
+                    <div class="course-options">
+                        <label>
+                            <input type="radio" name="license-fee" value="full-package">
+                            路牌及學習駕駛證（運代辦手續費） 
+                            <span class="price">HK$ 1,118</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="license-fee" value="license-only">
+                            路牌費用（運代辦手續費）
+                            <span class="price">HK$ 540</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="license-fee" value="learner-only">
+                            學習駕駛執照費用（運代辦手續費）
+                            <span class="price">HK$ 578</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="license-fee" value="none" checked>
+                            不需要
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="selected-courses">
+                <h2>已選課程</h2>
+                <div class="course-list">
+                    <!-- Selected courses will be displayed here -->
+                    <div class="course-card">
+                        <div class="course-info">
+                            <h3>自動波 21堂套餐 (初學)</h3>
+                            <p>套餐包括：21堂駕駛課程</p>
+                        </div>
+                        <div class="course-actions">
+                            <span class="course-price">HK$9,450</span>
+                            <button class="remove-course">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cart-summary">
+                    <h3>總計: HK$9,450</h3>
+                    <a href="cart-2.html" class="button">前往付款</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Same footer as other pages -->
+    <footer class="site-footer">
+        <!-- Copy the footer from private-car.html -->
+    </footer>
+
+    <script>
+        // Show/hide course options based on vehicle type selection
+        document.querySelectorAll('input[name="vehicle-type"]').forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                // Hide all course type options
+                document.querySelectorAll('.course-type').forEach(div => {
+                    div.style.display = 'none';
+                });
+                
+                // Show relevant options
+                if (e.target.value === 'private-car') {
+                    document.querySelector('.private-car-options').style.display = 'block';
+                } else if (e.target.value === 'light-goods') {
+                    document.querySelector('.light-goods-options').style.display = 'block';
+                }
+            });
+        });
+    </script>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-nav">
+                <a href="#">學車課程</a>
+                <a href="#">其他課程</a>
+                <a href="#">關於我們</a>
+                <a href="#">學車資訊</a>
+                <a href="#">考試攻略</a>
+                <a href="#">招聘人才</a>
+                <a href="#">聯絡我們</a>
+            </div>
+            
+            <div class="footer-contact">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>查詢電話：2332 2882</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>學車專線：+852 9676 1861</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-car"></i>
+                    <span>駕院補鐘：+852 9123 2020</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>info@2pass.org</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-container">
+            <div class="copyright">
+                Copyright © 2023 學車易 All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

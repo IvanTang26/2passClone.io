@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>結帳 - 2Pass 駕駛學校</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .checkout-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .form-section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .required {
+            color: red;
+            margin-left: 3px;
+        }
+
+        .order-summary {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .order-total {
+            font-weight: bold;
+            margin-top: 15px;
+            text-align: right;
+        }
+
+        .payment-section {
+            margin-top: 30px;
+        }
+
+        .payment-logo {
+            margin: 20px 0;
+        }
+
+        .payment-logo img {
+            height: 30px;
+            margin-right: 15px;
+        }
+
+        .submit-button {
+            background-color: #a3c86d;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .submit-button:hover {
+            background-color: #93b85f;
+        }
+
+        .terms-text {
+            font-size: 14px;
+            color: #666;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Same header as other pages -->
+    <header class="site-header">
+        <!-- Copy the header from private-car.html -->
+    </header>
+    <div class="header-main">
+        <div class="logo">
+            <a href="/"><img src="images/logo.png" alt="2Pass Logo"></a>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li>
+                    <a href="#courses">學車課程</a>
+                    <ul class="sub-menu">
+                        <li><a href="private-car.html">私家車課程</a></li>
+                        <li><a href="/light-goods">輕型貨車課程</a></li>
+                        <li><a href="/extra-practice">有牌補鐘</a></li>
+                        <li><a href="/school-lessons">駕駛學院補課</a></li>
+                        <li><a href="/license">申請各類牌照</a></li>
+                        <li><a href="/improvement">駕駛改進課程</a></li>
+                        <li><a href="/taxi-improvement">的士服務改進課程</a></li>
+                        <li><a href="/commercial">商用車輛課程</a></li>
+                    </ul>
+                </li>
+                <li><a href="/about">關於我們</a></li>
+                <li><a href="/info">學車資訊</a></li>
+                <li><a href="/recruit">招聘人才</a></li>
+            </ul>
+        </nav>
+        <div class="cta-button">
+            <a href="cart.html" class="button">立即報名</a>
+        </div>
+    </div>
+    <div class="checkout-container">
+        <h1>結帳</h1>
+
+        <div class="form-section">
+            <h2>客戶資料</h2>
+            <form id="checkout-form">
+                <div class="form-group">
+                    <label>姓<span class="required">*</span></label>
+                    <input type="text" required placeholder="姓">
+                </div>
+                <div class="form-group">
+                    <label>名<span class="required">*</span></label>
+                    <input type="text" required placeholder="名">
+                </div>
+                <div class="form-group">
+                    <label>聯絡地址<span class="required">*</span></label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>地區<span class="required">*</span></label>
+                    <select required>
+                        <option value="">選擇一個選項...</option>
+                        <option value="hk">香港島</option>
+                        <option value="kl">九龍</option>
+                        <option value="nt">新界</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>聯絡電話<span class="required">*</span></label>
+                    <input type="tel" required placeholder="Phone">
+                </div>
+                <div class="form-group">
+                    <label>電郵電郵<span class="required">*</span></label>
+                    <input type="email" required placeholder="Email Address">
+                </div>
+                <div class="form-group">
+                    <label>備註 (選填)</label>
+                    <textarea placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                </div>
+            </form>
+        </div>
+
+        <div class="order-summary">
+            <h2>你的訂單</h2>
+            <div class="order-item">
+                <span>商品</span>
+                <span>小計</span>
+            </div>
+            <div class="order-item">
+                <span>基礎晚航課程（優惠價＄480）× 1</span>
+                <span>HK$ 480</span>
+            </div>
+            <div class="order-item">
+                <span>小計</span>
+                <span>HK$ 480</span>
+            </div>
+            <div class="order-total">
+                <span>總計: HK$ 480</span>
+            </div>
+        </div>
+
+        <div class="payment-section">
+            <h3>BBMSL</h3>
+            <p>歡迎使用BBMSL，您的全方位電子支付方式。</p>
+            <div class="payment-logo">
+                <img src="images/mastercard.png" alt="Mastercard">
+                <img src="images/visa.png" alt="Visa">
+            </div>
+            <p class="terms-text">
+                我們會使用你的個人資料來處理你的訂單，支援你在本網站中的使用體驗，以及用於隱私政策中說明的其他用途。
+            </p>
+            <button class="submit-button">下單購買</button>
+        </div>
+    </div>
+
+    <!-- Same footer as other pages -->
+    <footer class="site-footer">
+        <!-- Copy the footer from private-car.html -->
+    </footer>
+</body>
+</html>

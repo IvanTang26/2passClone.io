@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>私家車課程</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background-color: #a3c86d;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+        }
+        .image {
+            flex: 1;
+            padding-right: 20px;
+        }
+        .image img {
+            max-width: 100%;
+            height: auto;
+        }
+        .content {
+            flex: 2;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .course {
+            margin-bottom: 20px;
+        }
+        .course h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .course p {
+            margin: 5px 0;
+        }
+        .button {
+            background-color: #a3c86d;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .site-footer {
+            background-color: #000;
+            color: white;
+            padding: 20px 0;
+            font-size: 14px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+        }
+
+        .footer-nav a:hover {
+            color: #a3c86d;
+        }
+
+        .footer-contact {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        }
+
+        .contact-item i {
+        color: #a3c86d;
+        }
+
+        .copyright {
+        color: #666;
+        font-size: 12px;
+        }
+        .image-container {
+            text-align: center;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-main">
+            <div class="logo">
+                <a href="/"><img src="images/logo.png" alt="2Pass Logo"></a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li>
+                        <a href="#courses">學車課程</a>
+                        <ul class="sub-menu">
+                            <li><a href="private-car.html">私家車課程</a></li>
+                            <li><a href="/light-goods">輕型貨車課程</a></li>
+                            <li><a href="/extra-practice">有牌補鐘</a></li>
+                            <li><a href="/school-lessons">駕駛學院補課</a></li>
+                            <li><a href="/license">申請各類牌照</a></li>
+                            <li><a href="/improvement">駕駛改進課程</a></li>
+                            <li><a href="/taxi-improvement">的士服務改進課程</a></li>
+                            <li><a href="/commercial">商用車輛課程</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/about">關於我們</a></li>
+                    <li><a href="/info">學車資訊</a></li>
+                    <li><a href="/recruit">招聘人才</a></li>
+                </ul>
+            </nav>
+            <div class="cta-button">
+                <a href="cart.html" class="button">立即報名</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="header">
+        <h1>首頁 / 私家車課程</h1>
+    </div>
+
+    <div class="container">
+        <div class="image-container">
+            <img src="images/private-car.png" alt="Private Car">
+        </div>
+        <div class="content">
+            <h2>私家車課程</h2>
+            <div class="course">
+                <h3>私家車自動波 9課套餐 (適合重考人士)</h3>
+                <p>HK$ 5350</p>
+                <a href="cart.html" class="button">馬上報堂</a>
+            </div>
+            <div class="course">
+                <h3>私家車自動波 21課套餐 (適合初學人士)</h3>
+                <p>HK$ 9450</p>
+                <a href="#" class="button">馬上報堂</a>
+            </div>
+            <div class="course">
+                <h3>私家車棍波 9課套餐 (適合重考人士)</h3>
+                <p>HK$ 6380</p>
+                <a href="#" class="button">馬上報堂</a>
+            </div>
+            <div class="course">
+                <h3>私家車棍波 21課套餐 (適合初學人士)</h3>
+                <p>HK$ 11320</p>
+                <a href="#" class="button">馬上報堂</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-nav">
+                <a href="#">學車課程</a>
+                <a href="#">其他課程</a>
+                <a href="#">關於我們</a>
+                <a href="#">學車資訊</a>
+                <a href="#">考試攻略</a>
+                <a href="#">招聘人才</a>
+                <a href="#">聯絡我們</a>
+            </div>
+            
+            <div class="footer-contact">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>查詢電話：2332 2882</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>學車專線：+852 9676 1861</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-car"></i>
+                    <span>駕院補鐘：+852 9123 2020</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>info@2pass.org</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-container">
+            <div class="copyright">
+                Copyright © 2023 學車易 All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
